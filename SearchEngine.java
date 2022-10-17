@@ -6,33 +6,7 @@ import java.util.ArrayList;
  * Boiler Plate Code copied from NumberServer.java
  */
 
-/**
- * Contains the Main method
- */
-public class SearchEngine {
-
-    /**
-     * Main method
-     * Enter port number in command line argument to run
-     * a local server on the designated port
-     * Visit http://localhost:<port number> to see the server
-     * @param args port number is 0th arg
-     * @throws IOException
-     */
-    public static void main(String[] args) throws IOException {
-
-        //Check if port number is specified
-        if(args.length == 0){
-            System.out.println("Missing port number! Try any number between 1024 to 49151");
-            return;
-        }
-
-        //parse into string and start a server on the port
-        int port = Integer.parseInt(args[0]);
-        Server.start(port, new Handler());
-    }
-}
-
+ 
 /**
  * Handler that handles requests, interacts with the storage
  * accesses it and manipulate it.
@@ -160,5 +134,33 @@ class Handler implements URLHandler {
         } else {
             return "404 Not Found; Invalid Path!";
         }
+    }
+}
+
+
+/**
+ * Contains the Main method
+ */
+public class SearchEngine {
+
+    /**
+     * Main method
+     * Enter port number in command line argument to run
+     * a local server on the designated port
+     * Visit http://localhost:<port number> to see the server
+     * @param args port number is 0th arg
+     * @throws IOException
+     */
+    public static void main(String[] args) throws IOException {
+
+        //Check if port number is specified
+        if(args.length == 0){
+            System.out.println("Missing port number! Try any number between 1024 to 49151");
+            return;
+        }
+
+        //parse into string and start a server on the port
+        int port = Integer.parseInt(args[0]);
+        Server.start(port, new Handler());
     }
 }
